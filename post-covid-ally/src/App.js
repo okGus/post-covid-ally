@@ -1,14 +1,16 @@
 import './App.css';
 import Chat from './components/Chat';
-import SignIn from './components/SignIn';
+import Login from './components/Login';
 import {auth} from './firebase.js'
 import {useAuthState} from 'react-firebase-hooks/auth'
+import Navigation from './components/Navigation'
 
 function App() {
   const [user] = useAuthState(auth)
   return (
     <>
-      {user ? <Chat/> : <SignIn/>}
+      <Navigation />
+      {user ? <Chat/> : <Login/>}
     </>
   );
 }
