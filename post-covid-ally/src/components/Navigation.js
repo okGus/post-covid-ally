@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { AppBar, Toolbar, Typography, Button} from '@material-ui/core'
+import { Link, Router } from 'react-router-dom'
 import { auth } from '../firebase.js'
 import { useAuthState } from 'react-firebase-hooks/auth'
-
+import Signin from './Signin'
+import Account from './Account.js';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -31,17 +30,11 @@ export default function Navigation() {
     <div className={classes.root}>
       <AppBar className={classes.navColor} position="static">
         <Toolbar>
-        <img
-              alt=""
-              src="../8056.jpg"
-              width="100"
-              height="100"
-              className="d-inline-block align-left"
-            />
+        <Link to="/"><img alt="" src="../8056.jpg" width="100" height="100"/></Link>
           <Typography variant="h6" className={classes.title}>
             Team Rocket
           </Typography>
-          {user ? <Button color="inherit">Account</Button> : <Button color="inherit">Login</Button>}
+          {user ? <Link to={Account}>Account</Link> : <Link to='/signin'>Login</Link>}
         </Toolbar>
       </AppBar>
     </div>
