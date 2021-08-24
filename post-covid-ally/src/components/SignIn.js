@@ -6,9 +6,9 @@ import {Button} from '@material-ui/core'
 import { useHistory } from 'react-router-dom';
 function Signin() {
     const history = useHistory();
-    function signInWithGoogle() {
+    async function signInWithGoogle() {
         const provider = new firebase.auth.GoogleAuthProvider()
-        auth.signInWithPopup(provider);
+        await auth.signInWithPopup(provider);
         history.push('/');
     }
   return (
