@@ -3,11 +3,13 @@ import './auth.css';
 import firebase from 'firebase'
 import {auth} from '../firebase'
 import {Button} from '@material-ui/core'
-
+import { useHistory } from 'react-router-dom';
 function Signin() {
+    const history = useHistory();
     function signInWithGoogle() {
         const provider = new firebase.auth.GoogleAuthProvider()
-        auth.signInWithPopup(provider)
+        auth.signInWithPopup(provider);
+        history.push('/');
     }
   return (
       <div className="form-container">

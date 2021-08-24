@@ -20,6 +20,11 @@ const useStyles = makeStyles((theme) => ({
   },
   navColor: {
     backgroundColor: '#3a3b3c'
+  },
+  linkStyle: {
+    color: '#f3f3f3',
+    textDecoration: 'none',
+    fontSize: '20px'
   }
 }));
 
@@ -34,7 +39,7 @@ export default function Navigation() {
           <Typography variant="h6" className={classes.title}>
             Team Rocket
           </Typography>
-          {user ? <Link to={Account}>Account</Link> : <Link to='/signin'>Login</Link>}
+          {user ? <Link to='/account' className={classes.linkStyle}>Account</Link> : <Link to='/signin' className={classes.linkStyle}>Login</Link>}
         </Toolbar>
       </AppBar>
     </div>
