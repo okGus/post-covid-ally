@@ -1,26 +1,26 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { AppBar, Toolbar, Typography} from '@material-ui/core'
+import { Link } from 'react-router-dom'
 import { auth } from '../firebase.js'
 import { useAuthState } from 'react-firebase-hooks/auth'
-
+import SignOut from './SignOut.js';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-  },
-  menuButton: {
+  }, menuButton: {
     marginRight: theme.spacing(2),
     marginLeft: theme.spacing(2),
-  },
-  title: {
+  }, title: {
     marginLeft: theme.spacing(2),
     flexGrow: 1,
-  },
-  navColor: {
+  }, navColor: {
     backgroundColor: '#3a3b3c'
+  }, linkStyle: {
+    color: '#f3f3f3',
+    textDecoration: 'none',
+    fontSize: '40px',
+    marginRight: theme.spacing(2)
   }
 }));
 
@@ -31,17 +31,18 @@ export default function Navigation() {
     <div className={classes.root}>
       <AppBar className={classes.navColor} position="static">
         <Toolbar>
-        <img
-              alt=""
-              src="../8056.jpg"
-              width="100"
-              height="100"
-              className="d-inline-block align-left"
-            />
+        <Link className={classes.linkStyle} to="/"><i class="fas fa-rocket"></i></Link>
           <Typography variant="h6" className={classes.title}>
             Team Rocket
           </Typography>
-          {user ? <Button color="inherit">Account</Button> : <Button color="inherit">Login</Button>}
+          { user ?
+          <>
+            <Link to='/account' className={classes.linkStyle}><i class="fas fa-user"></i></Link>
+            <SignOut />
+          </>
+              : 
+            <Link to='/signin' className={classes.linkStyle}><i class="fas fa-sign-in-alt"></i></Link>
+          }
         </Toolbar>
       </AppBar>
     </div>
