@@ -1,6 +1,6 @@
 import './App.css';
 import Chat from './components/Chat';
-import Signin from './components/Signin';
+import Signin from './components/SignIn';
 import {auth} from './firebase.js'
 import {useAuthState} from 'react-firebase-hooks/auth'
 import Navigation from './components/Navigation';
@@ -14,7 +14,7 @@ function App() {
         <Navigation />
         <Switch>
           
-          <Route exact path="/signin" component={Signin}/>
+          <Route exact path="/signIn" component={Signin}/>
           <Route path="/account">
             {user ? <Account /> : <Redirect to="/signin"/>}
           </Route>
