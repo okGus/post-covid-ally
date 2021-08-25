@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import { db } from '../firebase'
-import SignOut from './SignOut'
 
 function Chat() {
     const [messages, setMessages] = useState([])
@@ -11,7 +10,6 @@ function Chat() {
     }, [])
     return (
         <div>
-            <SignOut />
             {messages.map(({id, text, photoURL}) => (
                 <div key={id}>
                     <img src={photoURL} alt=""/>

@@ -1,30 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, Button} from '@material-ui/core'
-import { Link, Router } from 'react-router-dom'
+import { AppBar, Toolbar, Typography} from '@material-ui/core'
+import { Link } from 'react-router-dom'
 import { auth } from '../firebase.js'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import Signin from './Signin'
-import Account from './Account.js';
+import SignOut from './SignOut.js';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-  },
-  menuButton: {
+  }, menuButton: {
     marginRight: theme.spacing(2),
     marginLeft: theme.spacing(2),
-  },
-  title: {
+  }, title: {
     marginLeft: theme.spacing(2),
     flexGrow: 1,
-  },
-  navColor: {
+  }, navColor: {
     backgroundColor: '#3a3b3c'
-  },
-  linkStyle: {
+  }, linkStyle: {
     color: '#f3f3f3',
     textDecoration: 'none',
-    fontSize: '20px'
+    fontSize: '40px',
+    marginRight: theme.spacing(2)
   }
 }));
 
@@ -35,11 +31,18 @@ export default function Navigation() {
     <div className={classes.root}>
       <AppBar className={classes.navColor} position="static">
         <Toolbar>
-        <Link to="/"><img alt="" src="../8056.jpg" width="100" height="100"/></Link>
+        <Link className={classes.linkStyle} to="/"><i class="fas fa-rocket"></i></Link>
           <Typography variant="h6" className={classes.title}>
             Team Rocket
           </Typography>
-          {user ? <Link to='/account' className={classes.linkStyle}>Account</Link> : <Link to='/signin' className={classes.linkStyle}>Login</Link>}
+          { user ?
+          <>
+            <Link to='/account' className={classes.linkStyle}><i class="fas fa-user"></i></Link>
+            <SignOut />
+          </>
+              : 
+            <Link to='/signin' className={classes.linkStyle}><i class="fas fa-sign-in-alt"></i></Link>
+          }
         </Toolbar>
       </AppBar>
     </div>
