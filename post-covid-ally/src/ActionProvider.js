@@ -1,12 +1,4 @@
 import './App.css';
-import Chat from './components/Chat';
-import Signin from './components/SignIn';
-import {auth} from './firebase.js'
-import {useAuthState} from 'react-firebase-hooks/auth'
-import Navigation from './components/Navigation';
-import Account from './components/Account'
-import React from 'react';
-import { Divider } from '@material-ui/core';
 class ActionProvider {
     constructor(createChatBotMessage, setStateFunc, createClientMessage) {
       this.createChatBotMessage = createChatBotMessage;
