@@ -21,8 +21,9 @@ function App() {
   const [user] = useAuthState(auth)
   return (
     <Router>
-      {/* <div>
+      <div>
         <Navigation />
+        <Chat />
         <Switch>
           
           <Route exact path="/signIn" component={Signin}/>
@@ -33,12 +34,12 @@ function App() {
               {user ? <Chat /> : <Redirect to="/signin"/>}
           </Route>
         </Switch>
-      </div> */}
-      <div className="App">
+      </div>
+      {/* <div className="App">
         <header className="App-header">
           <Chatbot config={config} actionProvider={ActionProvider} 	    messageParser={MessageParser} />
         </header>
-      </div>
+      </div> */}
     </Router>
     
   );

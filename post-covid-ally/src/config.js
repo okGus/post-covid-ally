@@ -38,7 +38,22 @@ const config = {
                 ],
               },
 
-        }
+        },
+        {
+            widgetName : "UserChatLink",
+            widgetFunc : (props) => <LinkList {...props} />,
+            props: {
+                options: [
+                  {
+                    text: "talk to user",
+                    url:
+                      "/Page2",
+                    id: 1,
+                  },
+                ],
+              },
+
+        },
     ],
 
     
