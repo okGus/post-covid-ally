@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { auth, db } from "../firebase";
 import SendMessage from "./sendMessage";
+import './chat.css'
 
 function Chat() {
   const scroll = useRef();
