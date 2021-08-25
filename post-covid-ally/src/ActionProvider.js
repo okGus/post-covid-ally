@@ -1,3 +1,12 @@
+import './App.css';
+import Chat from './components/Chat';
+import Signin from './components/SignIn';
+import {auth} from './firebase.js'
+import {useAuthState} from 'react-firebase-hooks/auth'
+import Navigation from './components/Navigation';
+import Account from './components/Account'
+import React from 'react';
+import { Divider } from '@material-ui/core';
 class ActionProvider {
     constructor(createChatBotMessage, setStateFunc, createClientMessage) {
       this.createChatBotMessage = createChatBotMessage;
@@ -7,7 +16,7 @@ class ActionProvider {
     //Campus Solution Links
     handleCampusNavigationList = () => {
         const message = this.createChatBotMessage(
-          "What navigation services do you need assistance for ? :",
+          "What navigation services do you need assistance for ? ",
           {
             widget: "CampusNavigationLinks",
           }
@@ -34,10 +43,24 @@ class ActionProvider {
         // this.updateChatbotState(greetingMessage)
     }
     ext() {
-        const greetingMessage2 = this.createChatBotMessage("We are all in this together :)")
+        const greetingMessage = this.createChatBotMessage("We are all in this together :)")
         // this.sleep(50)
-        this.updateChatbotState(greetingMessage2)
+        this.updateChatbotState(greetingMessage)
     }
+    moveToChat(){
+        const message = this.createChatBotMessage(
+            "Would you like to talk to user ?",
+            {
+              widget: "UserChatLink",
+            }
+          );
+      
+        this.updateChatbotState(message);
+
+    }
+    // chatUser(){
+    //     <div>hi</div>
+    // }
 
     updateChatbotState(message){
         // NOTE: This function is set in the constructor, and is passed in      

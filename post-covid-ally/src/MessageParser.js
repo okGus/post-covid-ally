@@ -19,7 +19,11 @@ class MessageParser {
         }
         if (lowerCaseMessage.includes("campus") || lowerCaseMessage.includes("navigation") ) {
             this.actionProvider.handleCampusNavigationList();
-          }
+        }
+        if (lowerCaseMessage.includes("talk") ) {
+            this.actionProvider.moveToChat();
+            // this.actionProvider.chatUser();
+        }
 
       console.log(message)
     }
