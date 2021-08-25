@@ -8,7 +8,7 @@ import ActionProvider from './ActionProvider';
 import MessageParser from './MessageParser';
 import config from './config';
 
-function App() {
+function Page1() {
   return (
     <div className="App">
       <header className="App-header">
@@ -18,4 +18,4 @@ function App() {
   );
 }
 
-export default App;
+export default Page1;

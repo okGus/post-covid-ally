@@ -17,13 +17,12 @@ import config from './config';
 
 
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-function App() {
+function Page2() {
   const [user] = useAuthState(auth)
   return (
     <Router>
       <div>
         <Navigation />
-        <Chat />
         <Switch>
           
           <Route exact path="/signIn" component={Signin}/>
@@ -45,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+export default Page2;
