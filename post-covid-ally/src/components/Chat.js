@@ -7,6 +7,13 @@ function Chat() {
   const scroll = useRef();
   const [messages, setMessages] = useState([]);
   useEffect(() => {
+    db.collection('messages').get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        doc.ref.delete();
+      });
+    });
+  }, []);
+  useEffect(() => {
     db.collection("messages")
       .orderBy("createdAt")
       .limit(50)
@@ -14,6 +21,7 @@ function Chat() {
         setMessages(snapshot.docs.map((doc) => doc.data()));
       });
   }, []);
+  
   return (
     <div>
       <div className="msgs">
@@ -21,8 +29,8 @@ function Chat() {
           <div>
             <div
               key={id}
-              classname={`msg ${
-                uid === auth.currentUser ? "sent" : "received"
+              className={`msg ${
+                uid === auth.currentUser.uid ? "sent" : "received"
               }`}
             >
               <img src={photoURL} alt="" />
