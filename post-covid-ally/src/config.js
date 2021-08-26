@@ -47,7 +47,7 @@ const config = {
                   {
                     text: "talk to user",
                     url:
-                      "/Page2",
+                      "/Chat",
                     id: 1,
                   },
                 ],

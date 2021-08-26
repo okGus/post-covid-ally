@@ -1,27 +1,19 @@
-import './App.css';
-import Chat from './components/Chat';
+import React from 'react';
 import Signin from './components/SignIn';
 import {auth} from './firebase.js'
 import {useAuthState} from 'react-firebase-hooks/auth'
 import Navigation from './components/Navigation';
 import Account from './components/Account'
-///
-import React from 'react';
-import Chatbot from 'react-chatbot-kit'
+import ChatBot from './components/ChatBot';
+import Chat from './components/Chat'
 import './App.css';
-
-import ActionProvider from './ActionProvider';
-import MessageParser from './MessageParser';
-import config from './config';
-///
-
-
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+
 function App() {
   const [user] = useAuthState(auth)
   return (
     <Router>
-      {/* <div>
+      <div>
         <Navigation />
         <Switch>
           
@@ -30,14 +22,12 @@ function App() {
             {user ? <Account /> : <Redirect to="/signin"/>}
           </Route>
           <Route exact path="/">
-              {user ? <Chat /> : <Redirect to="/signin"/>}
+              {user ? <ChatBot /> : <Redirect to="/signin"/>}
+          </Route>
+          <Route path="/chat">
+            <Chat />
           </Route>
         </Switch>
-      </div> */}
-      <div className="App">
-        <header className="App-header">
-          <Chatbot config={config} actionProvider={ActionProvider} 	    messageParser={MessageParser} />
-        </header>
       </div>
     </Router>
     
