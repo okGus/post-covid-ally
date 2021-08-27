@@ -51,7 +51,10 @@ function ChatBot() {
                     </header>
                 )}
             </div>
-            <button onClick={() => toggleBot((prev) => !prev)}>Bot</button>
+            <br/>
+            <button className="btn" onClick={() => toggleBot((prev) => !prev)}>Access Bot</button>
+            <br/><br/>
+            <button className="btn" onClick={() => toggleBot((prev) => !prev)}>Close Bot</button>
         </div>
     )
 
