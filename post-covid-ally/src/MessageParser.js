@@ -1,4 +1,5 @@
 class MessageParser {
+
     constructor(actionProvider, state) {
       this.actionProvider = actionProvider;
       this.state = state;
@@ -50,8 +51,9 @@ class MessageParser {
             
         }
     
-      console.log(message)
-    }
+
+    console.log(message);
   }
-  
-  export default MessageParser;
+}
+
+export default MessageParser;

@@ -1,3 +1,4 @@
+
 import './App.css';
 import { db } from "./firebase";
 var chat = [];
@@ -14,12 +15,15 @@ async function sendData() {
       console.log(error);
     });
 }
+
 class ActionProvider {
   constructor(createChatBotMessage, setStateFunc, createClientMessage) {
     this.createChatBotMessage = createChatBotMessage;
     this.setState = setStateFunc;
     this.createClientMessage = createClientMessage;
   }
+
+
 
 
   greet = () => {
@@ -94,28 +98,34 @@ class ActionProvider {
     // const greetingMessage2 = this.createChatBotMessage("We are all in this together :)")
     this.updateChatbotState(greetingMessage)
 
+
     // this.updateChatbotState(greetingMessage2)
     // this.updateChatbotState(greetingMessage)
   }
+
   //Campus Solution Links
   handleCampusNavigationList = () => {
     const message = this.createChatBotMessage(
       "What navigation services do you need assistance for ? ",
       {
         widget: "CampusNavigationLinks",
+
       }
     );
 
     this.updateChatbotState(message);
+
   };
 
   addMessageToState = (message) => {
     chat.push({ ques: message.message });
 
+
     this.setState((prevState) => ({
       ...prevState,
       messages: [...prevState.messages, message],
     }));
+
   };
   updateChatbotState(message){
     // NOTE: This function is set in the constructor, and is passed in      
@@ -129,3 +139,4 @@ class ActionProvider {
 }
 
 export default ActionProvider;
+

@@ -1,3 +1,4 @@
+
 // import React from 'react'
 // import '../App.css';
 import React, { useState } from "react";
@@ -53,6 +54,7 @@ function ChatBot() {
             <button onClick={() => toggleBot((prev) => !prev)}>Bot</button>
         </div>
     )
+
 }
 
-export default ChatBot
+export default ChatBot;
