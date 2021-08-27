@@ -4,16 +4,49 @@ import { createChatBotMessage } from "react-chatbot-kit";
 import LearningOptions from "./components/LearningOptions/LearningOptions";
 import LinkList from "./components/LinkList/LinkList";
 
+
+import Options from "./components/Options/Options";
+import QA from "./components/QA/QA";
+
 const config = {
     botName : "Post Covid Ally",
     initialMessages: [
-        createChatBotMessage(`Hello, I'm here if you need any assistance`, {
+        createChatBotMessage(`Hello, I'm here anytime you need me`, {
             // widget: "LearningOptions",
         }),
 
     ],
     
     widgets: [
+
+        {
+          widgetName: "options1",
+          widgetFunc: (props) => <Options {...props} />,
+        },
+        {
+          widgetName: "options2",
+          widgetFunc: (props) => <Options {...props} />,
+        },
+        {
+          widgetName: "QuestionAnswer",
+          widgetFunc: (props) => <QA {...props} />,
+          props: {
+            questions: [
+              {
+                question: "What is closure?",
+                answer:
+                  "Closure is a way for a function to retain access to it's enclosing function scope after the execution of that function is finished.",
+                id: 1,
+              },
+              {
+                question: "Explain prototypal inheritance",
+                answer:
+                  "Prototypal inheritance is a link between an object and an object store that holds shared properties. If a property is not found on the host object, javascript will check the prototype object.",
+                id: 2,
+              },
+            ],
+          },
+        },
         {
             widgetName : "LearningOptions",
             widgetFunc : (props) => <LearningOptions {...props} />,
