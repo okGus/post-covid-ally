@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { auth } from '../firebase.js'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import SignOut from './SignOut.js';
+import '../App.css';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -31,7 +32,7 @@ export default function Navigation() {
     <div className={classes.root}>
       <AppBar className={classes.navColor} position="static">
         <Toolbar>
-        <Link className={classes.linkStyle} to="/"><i class="fas fa-rocket"></i></Link>
+        <Link className="App-logo" to="/"><i class="fas fa-rocket"></i></Link>
           <Typography variant="h6" className={classes.title}>
             Team Rocket
           </Typography>
